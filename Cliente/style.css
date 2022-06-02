@@ -1,0 +1,550 @@
+html {
+ background-color: #d9d9d9
+}
+.heart-label {
+position: sticky;
+display: inline-table;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+transform: scale(2);
+}
+
+.heart-label .heart-svg {
+width: 25px;
+position: relative;
+z-index: 2;
+}
+
+.heart-label .heart-path {
+fill: #FFFFFF;
+stroke-width: 45px;
+stroke: #999999;
+stroke-dasharray: 1600;
+stroke-dashoffset: 0;
+stroke-linecap: round;
+}
+
+.heart-label .heart-check[type="checkbox"] {
+display: none;		  
+}
+
+
+.heart-label .heart-check[type="checkbox"]:checked + .heart-svg .heart-path {
+animation: .8s draw-heart linear forwards;
+}
+
+@keyframes draw-heart {
+0% {
+    stroke-dashoffset: 1600;
+    stroke: #e21010;
+}
+80% {
+    stroke-dashoffset: 0;
+    fill: #FFF;
+}
+100% {
+    stroke-dashoffset: 0;
+    fill: #cc3131;
+    stroke: #cc3131;
+}
+}
+
+
+
+.heart-label .heart-circle,
+.heart-label .heart-circle:after, 
+.heart-label .heart-circle:before {
+display: inline-block;
+width: 2.5px;
+height: 2.5px;
+border-radius: 50%;
+background-color: transparent;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%) rotateZ(45deg) scale(0);
+
+box-shadow: 0 -20px 0 #FA6A93, 
+            0 20px 0 #FA6A93, 
+            -20px 0 0 #FA6A93, 
+            20px 0 0 #FA6A93;
+}
+
+.heart-label .heart-circle:after {
+content: '';
+width: 3px;
+height: 3px;
+transform: translate(-50%, -50%) rotateZ(30deg) scale(0);
+
+}
+
+.heart-label .heart-circle:before {
+content: '';
+width: 3.5px;
+height: 3.5px;
+transform: translate(-50%, -50%) rotateZ(60deg) scale(0);
+
+}
+
+
+
+.heart-label .heart-check[type="checkbox"]:checked ~ .heart-circle {
+animation: .5s blink ease-in-out forwards .8s; 
+}
+
+.heart-label .heart-check[type="checkbox"]:checked ~ .heart-circle:after {
+animation: .7s blink-after ease-in-out forwards .6s; 
+}
+
+.heart-label .heart-check[type="checkbox"]:checked ~ .heart-circle:before {
+animation: .7s blink-before ease-in-out forwards .6s; 
+}
+
+@keyframes blink{
+0% {
+    transform: translate(-50%, -50%) rotateZ(45deg) scale(.5);
+    opacity: .9;
+}
+70% {
+    transform: translate(-50%, -50%) rotateZ(45deg) scale(1);
+    opacity: .9;
+}
+
+100% {
+    transform: translate(-50%, -50%) rotateZ(45deg) scale(1.1);
+    opacity: 0;
+}
+}
+
+@keyframes blink-after{
+0% {
+    transform: translate(-50%, -50%) rotateZ(30deg) scale(.5);
+    opacity: 1;
+}
+70% {
+    transform: translate(-50%, -50%) rotateZ(30deg) scale(1);
+    opacity: 1;
+}
+100% {
+    transform: translate(-50%, -50%) rotateZ(30deg) scale(1.1);
+    opacity: 0;
+}
+}
+
+@keyframes blink-before{
+0% {
+    transform: translate(-50%, -50%) rotateZ(60deg) scale(.5);
+    opacity: 1;
+}
+70% {
+    transform: translate(-50%, -50%) rotateZ(60deg) scale(1);
+    opacity: 1;
+}
+
+100% {
+    transform: translate(-50%, -50%) rotateZ(60deg) scale(1.1);
+    opacity: 0;
+}
+}
+
+.heart-label .heart-check[type="checkbox"]:checked + .heart-svg {
+animation: 1s pop linear forwards;
+}
+
+@keyframes pop {
+0%, 70%, 100% {
+    transform: scale(1);
+}
+
+80% {
+    transform: scale(1.3);
+}
+}
+
+.heart-label .heart-check[type="checkbox"] + .heart-svg {
+animation: 1s popover linear forwards;
+}
+
+@keyframes popover {
+0% {
+    transform: scale(1.3);
+}
+
+30%, 100% {
+    transform: scale(1);
+}
+}
+/* Navbar container */
+.navbar {
+  overflow: hidden;
+  background-color: #a12c2f;
+  font-family: Arial;
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #f5a425;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.ba {
+    border-style: solid;
+    border-width: 1px;
+}
+
+.br3 {
+    border-radius: .5rem;
+}
+
+.bw1 {
+    border-width: .125rem;
+}
+
+.bw2 {
+    border-width: .25rem;
+}
+
+.dib {
+    display: inline-table;
+}
+
+.fw6 {
+    font-weight: 600;
+}
+
+.tracked {
+    letter-spacing: .1em;
+}
+
+.link {
+    text-decoration: none;
+    transition: color .15s ease-in;
+}
+
+.link:link, .link:visited {
+    transition: color .15s ease-in;
+}
+
+.link:hover {
+    transition: color .15s ease-in;
+}
+
+.link:active {
+    transition: color .15s ease-in;
+}
+
+.link:focus {
+    transition: color .15s ease-in;
+    outline: 1px dotted currentColor;
+}
+
+.black {
+    color: #000;
+}
+
+.near-black {
+    color: #111;
+}
+
+.dark-gray {
+    color: #333;
+}
+
+.mid-gray {
+    color: #555;
+}
+
+.navy {
+    color: #001b44;
+}
+
+.dark-blue {
+    color: #00449e;
+}
+
+.bg-black {
+    background-color: #000;
+}
+
+.bg-near-black {
+    background-color: #111;
+}
+
+.bg-dark-gray {
+    background-color: #333;
+}
+
+.bg-mid-gray {
+    background-color: #555;
+}
+
+.pv2 {
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+
+.ph6 {
+    padding-left: 9rem;
+    padding-right: 9rem;
+}
+
+.mb2 {
+    margin-bottom: .5rem;
+}
+
+.mb4 {
+    margin-bottom: 2rem;
+}
+
+.mt4 {
+    margin-top: 2rem;
+}
+
+.ttu {
+    text-transform: uppercase;
+}
+
+.f6 {
+    font-size: .875rem;
+    margin-inline-start: auto;
+}
+
+.dim {
+    opacity: 1;
+    transition: opacity .15s ease-in;
+}
+
+.dim:hover, .dim:focus {
+    opacity: .5;
+    transition: opacity .15s ease-in;
+}
+
+.dim:active {
+    opacity: .8;
+    transition: opacity .15s ease-out;
+}
+
+
+/*
+---------------------- AQUI EMPIEZAN LOS ARTICULOS
+*/
+.outline {
+    outline: 1px solid;
+}
+
+.cf:before, .cf:after {
+    content: " ";
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
+.cf {
+    *zoom: 1;
+}
+
+.db {
+    display: block;
+}
+
+.fl {
+    float: left;
+    _display: inline;
+}
+
+.fw4 {
+    font-weight: 400;
+}
+
+.lh-copy {
+    line-height: 1.5;
+}
+
+.link {
+    text-decoration: none;
+    transition: color .15s ease-in;
+}
+
+.link:link, .link:visited {
+    transition: color .15s ease-in;
+}
+
+.link:hover {
+    transition: color .15s ease-in;
+}
+
+.link:active {
+    transition: color .15s ease-in;
+}
+
+.link:focus {
+    transition: color .15s ease-in;
+    outline: 1px dotted currentColor;
+}
+.w-100 {
+    max-height: 90%;
+    max-width: 80%;
+}
+.black-10 {
+    color: rgba(0, 0, 0, .1);
+}
+
+.black {
+    color: #000;
+}
+
+.gray {
+    color: #777;
+}
+
+.pa2 {
+    padding: .5rem;
+}
+
+.pa3 {
+    padding: 1rem;
+}
+
+.ml0 {
+    margin-left: 0;
+}
+
+.mt2 {
+    margin-top: .5rem;
+}
+
+.mv0 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.tc {
+    text-align: center;
+}
+
+.ttu {
+    text-transform: uppercase;
+}
+
+.f3 {
+    font-size: 1.5rem;
+}
+
+.f6 {
+    font-size: .875rem;
+}
+
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.clip {
+    position: fixed !important;
+    _position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+.dim {
+    opacity: 1;
+    transition: opacity .15s ease-in;
+}
+
+.dim:hover, .dim:focus {
+    opacity: .5;
+    transition: opacity .15s ease-in;
+}
+
+.dim:active {
+    opacity: .8;
+    transition: opacity .15s ease-out;
+}
+
+img {
+    border-style: double;
+    border-color: #f3c478;
+}
+
+.rating { 
+    font-size: 2rem;
+    color: goldenrod;
+    padding-inline: 100px;
+    display: inline-block;
+
+
+}
+
+
+
+@media screen and (min-width: 30em) and (max-width: 60em) {
+    .w-25-m {
+        width: 25%;
+    }
+}
+
+@media screen and (min-width: 60em) {
+    .w-20-l {
+        width: 20%;
+    }
+}
