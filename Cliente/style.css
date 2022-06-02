@@ -184,7 +184,7 @@ animation: 1s popover linear forwards;
 
 /* Links inside the navbar */
 .navbar a {
-  float: left;
+  float: right;
   font-size: 16px;
   color: white;
   text-align: center;
