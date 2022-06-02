@@ -175,6 +175,7 @@ animation: 1s popover linear forwards;
     transform: scale(1);
 }
 }
+
 /* Navbar container */
 .navbar {
   overflow: hidden;
@@ -534,8 +535,6 @@ img {
 
 
 }
-
-
 
 @media screen and (min-width: 30em) and (max-width: 60em) {
     .w-25-m {
